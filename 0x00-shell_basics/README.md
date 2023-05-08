@@ -1,1 +1,1 @@
-script that prints the absolute path name of the current working directory
+Thisscripte pwd print the current working directory
