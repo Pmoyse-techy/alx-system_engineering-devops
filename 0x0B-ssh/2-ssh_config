@@ -1,4 +1,8 @@
-# ssh config file
+# ssh client configuration with no password authentication
 Host *
-      PasswordAuthentication no
-      IdentifyFile ~/.ssh/school
+    SendEnv LANG LC_*
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no

@@ -1,24 +1,51 @@
 # Processes and signals
+This project was about `DevOps`, `Shell`, `Bash`, `Syscall` and `Scripting`
 
-Project done during **Full Stack Software Engineering studies** at **ALX**. It aims to learn about PID, processes and commands that handles them (`ps`, `pgrep`, `pkill`, `kill`, etc) in **Bash**.
+It had 12 mandatory tasks that helped me gain some practical knowledge about
+how to control certain processes in a Linux OS by sending signals
+using bash scripts.
 
-## Technologies
-* Scripts written in Bash 4.3.11(1)
-* Tested on Ubuntu 20.04 LTS
+## Mandatory Tasks
+### 0. What is my PID
+A Bash script that displays its own PID
 
-## Files
+### 1. List your processes
+A Bash script that displays a list of currently running processes.
 
-| Filename | Description |
-| -------- | ----------- |
-| `0-what-is-my-pid` | Displays its own PID |
-| `1-list_your_processes` | Displays a list of currently running processes |
-| `2-show_your_bash_pid` | Displays lines contaning the `bash` word in a list of currently running processes |
-| `3-show_your_bash_pid_made_easy` | Displays the PID, along with the process name, of processes whose name contain the word `Bash` |
-| `4-to_infinity_and_beyond` | Displays `To infinity and beyond` indefinitely |
-| `5-dont_stop_me_now` | Kills `4-to_infinity_and_beyond` process |
-| `6-stop_me_if_you_can` | Kills `4-to_infinity_and_beyond` process |
-| `7-highlander` | Displays `To infinity and beyond` indefinitely and displays `I am invincible!!!` when receiving a `SIGTERM` signal |
-| `8-beheaded_process` | Kills the process `7-highlander` |
-| `100-process_and_pid_file` | Prints some messages according to sended signals |
-| `101-manage_my_process` | Init script that manages `manage_my_process` with `start`, `stop` and `restart` instructions |
-| `102-zombie.c` | C program that creates 5 zombie processes |
+### 2. Show your Bash PID
+A Bash script that displays lines containing the `bash` word, thus allowing the user to easily get the PID of the Bash process.
+
+### 3. Show your Bash PID made easy
+A Bash script that displays the PID, along with the process name, of processes whose name contain the word `bash`
+
+### 4. To infinity and beyond
+A Bash script that displays `To infinity and beyond` indefinitely.
+
+### 5. Don't stop me now!
+A Bash script that stops [4-to_infinity_and_beyond](./4-to_infinity_and_beyond) process.
+
+Requirements:
+- You must use `kill`
+
+### 6. Stop me if you can
+A Bash script that stops [4-to_infinity_and_beyond](./4-to_infinity_and_beyond) process.
+
+Requirements:
+- You cannot use `kill` or `killall`
+
+### 7. Highlander
+A Bash script that displays:
+
+- `To infinity and beyond` indefinitely
+- With a `sleep 2` in between each iteration
+- `I am invincible!!!` when receiving a SIGTERM signal
+
+Make a copy of your `6-stop_me_if_you_can` script, name it `67-stop_me_if_you_can`, that kills the `7-highlander` process instead of the `4-to_infinity_and_beyond` one.
+
+### 8. Beheaded process
+A Bash script that kills the process `7-highlander`.
+
+## Advanved Tasks
+### 9. Process and PID file
+### 10. Manage my process
+### 11. Zombie

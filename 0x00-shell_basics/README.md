@@ -1,1 +1,2 @@
-Thisscripte pwd print the current working directory
+# Shell Basics
+Here is the very first work I had to do on System Engineering

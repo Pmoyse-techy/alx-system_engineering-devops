@@ -1,12 +1,35 @@
 #!/usr/bin/env bash
-# This script configures the Nginx server so that
-# /redirect_me is redirecting to another page
+# Install the web server 'nginx' on the server and perform some configurations
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install nginx -y
+ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.html
 
-sudo apt-get -y update
-sudo apt-get -y install nginx
-sudo chown -R "$USER":"$USER" /var/www
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
-sudo sed -i "48i\\\tif (\$request_filename ~ redirect_me){\n\t\t\
-rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n\t}" /etc/nginx/sites-available/default
+new_website=\
+"server {
+        listen 80;
+        listen [::]:80;
 
-sudo service nginx restart
+        server_name tmaworldwide.tech;
+
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html 404.html;
+        
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        if ($request_filename ~ redirect_me){
+            rewrite ^ https://www.youtube.com/@tpauldike permanent;
+        }
+}"
+
+echo "$new_website" > /etc/nginx/sites-available/new_website
+
+if [ "$(pgrep nginx)" -le 0 ];
+then
+    sudo service nginx start
+else
+    sudo service nginx restart
+fi;

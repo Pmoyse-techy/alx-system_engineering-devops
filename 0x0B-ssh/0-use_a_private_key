@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-ssh -i ~/.ssh/school ubuntu@100.25.19.196
+# connect to server web-01 as 'ubuntu', with your private saved as 'school'
+ssh -i ~/.ssh/school ubuntu@100.25.138.198
